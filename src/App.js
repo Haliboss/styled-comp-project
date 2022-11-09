@@ -1,8 +1,12 @@
+import Header from "./components/Header";
+import { ThemeProvider } from "styled-components";
+
+
 const App = () => {
   return (
-    <>
-      <h1>APP</h1>
-    </>
+    <ThemeProvider>
+      <Header/>
+    </ThemeProvider>
   );
 };
 
