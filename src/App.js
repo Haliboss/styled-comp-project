@@ -2,24 +2,31 @@ import Header from "./components/Header";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./components/styles/Global.styled";
 import Card from "./components/Card";
-import data from './data';
+import Footer from "./components/Footer";
+import Container from "./components/styles/Container.styled";
+import data from "./data";
 
 const style = {
   colors: {
     header: "#fff",
     body: "#fff",
-    footer: "#8a1c4a",
+    footer: "#8A1C4A",
   },
   margins: {},
-  responsive: '768px',
+  responsive: "724px",
 };
 
 const App = () => {
   return (
     <ThemeProvider theme={style}>
-      <GlobalStyles/>
+      <GlobalStyles />
       <Header />
-      <Card data={data}/>
+      <Container>
+        {data.map((item, index) => {
+          return <Card {...item} key={index} />;
+        })}
+      </Container>
+      <Footer />
     </ThemeProvider>
   );
 };

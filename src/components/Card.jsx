@@ -1,23 +1,18 @@
-import React from "react";
+import StyledCard from "./styles/Card.styled";
+import { Image } from "./styles/Header.styled";
 
-const Card = ({ data }) => {
-  //console.log(data);
-
+const Card = ({ id, title, body, image }) => {
+  // console.log(image);
   return (
-    <div>
-      {data.map((item) => {
-        const { id, title, body, image } = item;
-        return (
-          <div key={id}>
-            <h2 >{title}</h2>
-            <p>{body}</p>
-            <div>
-              <img src={`./images/${image}`} alt="img" />
-            </div>
-          </div>
-        );
-      })}
-    </div>
+    <StyledCard odd={id % 2 && "row-reverse"}>
+      <div>
+        <h2>{title}</h2>
+        <p>{body}</p>
+      </div>
+      <div>
+        <Image src={`./images/${image}`} />
+      </div>
+    </StyledCard>
   );
 };
 
